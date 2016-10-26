@@ -7,7 +7,7 @@
 <body>
 <?php
 	$colore ="white";
-	$intestazione = "<div><table border=1 style=\"table-layout:fixed; background-color:green; text-align:center;\"><tr><td>Nome</td><td>Quantit&agrave;</td><td>Categoria</td></tr>\n";
+	$intestazione = "<div><table border=1 style=\"table-layout:fixed; text-align:center;\"><tr><td>Nome</td><td>Quantit&agrave;</td><td>Categoria</td></tr>\n";
 	$categoria = mysql_real_escape_string($_GET['categoria'],$connessione);
 	$categoria = str_replace(' ', '-', $categoria);
 	$categoria = str_replace('---', '-', $categoria);
@@ -25,7 +25,7 @@
 			while ($id_prodotto)
 			{
 				if ($id_prodotto["Quantita"] < 1.2) $colore="red";
-				echo "<tr style=\"background-color:$colore\"><td>".$id_prodotto["Prodotto"].'</td><td>'.$id_prodotto["Quantita"].'</td><td>'.$id_prodotto["Categoria"].'</td></tr></div>';
+				echo "<tr style=\"background-color:$colore\"><td>".$id_prodotto["Prodotto"].'</td><td>'.$id_prodotto["Quantita"].'</td><td>'.$id_prodotto["Categoria"]."</td></tr></div>\n";
 				$colore="white";
 				$id_prodotto = mysql_fetch_assoc($sql_prodotto);
 			}
@@ -40,7 +40,9 @@
 		$id_prodotto = mysql_fetch_assoc($sql_prodotto);
 		while ($id_prodotto)
 		{
-			echo '<tr><td>'.$id_prodotto["Prodotto"].'</td><td>'.$id_prodotto["Quantita"].'</td><td>'.$id_prodotto["Categoria"].'</td></tr>';
+			if ($id_prodotto["Quantita"] < 1.2) $colore="red";
+			echo "<tr style=\"background-color:$colore\"><td>".$id_prodotto["Prodotto"].'</td><td>'.$id_prodotto["Quantita"].'</td><td>'.$id_prodotto["Categoria"]."</td></tr></div>\n";
+			$colore="white";
 			$id_prodotto = mysql_fetch_assoc($sql_prodotto);
 		}
 	}

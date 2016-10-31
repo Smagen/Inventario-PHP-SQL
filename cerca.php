@@ -7,7 +7,7 @@
 <body>
 
 Quale categoria vuoi visualizzare?
-<form action="visualizza.php" method="get">
+<form action="cerca_go.php" method="get">
 <p>
 	<label for ="categoria" id ="categoria">Categoria: </label> 
 	<select  name="categoria">

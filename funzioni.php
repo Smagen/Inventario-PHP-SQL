@@ -1,5 +1,6 @@
 <?php 
 	include 'connessione.php';
+	
 	function elenco_categorie ($db)
 	{
 		$sql = mysql_query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '$db'") or DIE ("\nErrore nella ricerca delle tabelle!\n".mysql_error()); //ritorna la lista delle tabelle
@@ -15,12 +16,18 @@
 		}
 	}
 
-	function check_password ($x)
+	function elenco_prodotti ($categoria)
 	{
-		$x = mysql_real_escape_string ($x);
-		if ($x != $password_docente)
+		$categoria_parsed = strtolower($categoria);
+		$categoria_parsed = str_replace(' ', '-', $categoria_parsed);
+		$categoria_parsed = str_replace('---', '-', $categoria_parsed);
+		$sql = mysql_query("SELECT Prodotto FROM inventario.`$categoria_parsed`") or DIE ("\nErrore nella ricerca prodotti!\n".mysql_error());
+		$riga = mysql_fetch_assoc($sql);
+		while ($riga)
 		{
-			echo "Password errata.";
+			$nome_prodotto = $riga['Prodotto'];
+			echo "<option id='prodotto'>".$nome_prodotto."</option>\n";
+			$riga = mysql_fetch_assoc($sql);
 		}
 	}
 ?>

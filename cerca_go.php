@@ -7,10 +7,8 @@
 <body>
 <?php
 	$colore ="white";
-	$intestazione = "<div><table border=1 style=\"table-layout:fixed; text-align:center;\"><tr><td>Nome</td><td>Quantit&agrave;</td><td>Categoria</td></tr>\n";
 	$categoria = mysql_real_escape_string($_GET['categoria'],$connessione);
-	$categoria = str_replace(' ', '-', $categoria);
-	$categoria = str_replace('---', '-', $categoria);
+	$categoria=strtolower(str_replace('---', '-', str_replace(' ', '-', $categoria)));
 	
 	if ($categoria == "TUTTI-I-REPARTI") //mostra tutti gli elementi in magazzino
 	{
@@ -19,9 +17,12 @@
 		
 		while($riga)
 		{
-			echo $intestazione;
 			$sql_prodotto = mysql_query("SELECT Prodotto,Quantita,Categoria FROM `$riga[TABLE_NAME]` ORDER BY Prodotto ASC") or DIE ("Impossibile recuperare elenco prodotti!\n".mysql_error());
 			$id_prodotto = mysql_fetch_assoc($sql_prodotto);
+
+			$intestazione = '<div><table cellspacing=\'0\'><tr><th><h2>'."$id_prodotto[Categoria]"."</h2></th></tr><tr><th>Nome</th><th>Quantit&agrave;</th><th>Categoria</th></tr>\n";
+
+			echo $intestazione;
 			while ($id_prodotto)
 			{
 				if ($id_prodotto["Quantita"] < 1.2) $colore="red";
@@ -35,9 +36,10 @@
 	} 
 	else
 	{
-		echo "$intestazione";
 		$sql_prodotto = mysql_query("SELECT Prodotto,Quantita,Categoria FROM `$categoria` ORDER BY Prodotto ASC") or DIE ("Impossibile recuperare elenco prodotti!\n".mysql_error());
 		$id_prodotto = mysql_fetch_assoc($sql_prodotto);
+		$intestazione = '<div><table cellspacing=\'0\'><tr><th><h2>'."$id_prodotto[Categoria]"."</h2></th></tr><tr><th>Nome</th><th>Quantit&agrave;</th><th>Categoria</th></tr>\n";
+		echo $intestazione;
 		while ($id_prodotto)
 		{
 			if ($id_prodotto["Quantita"] < 1.2) $colore="red";
@@ -47,6 +49,6 @@
 		}
 	}
 ?>	
-</table></body>
+</table></div></body>
 <?php mysql_close($connessione); ?>
 </html>

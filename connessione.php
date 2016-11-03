@@ -8,4 +8,5 @@
 	$connessione = mysql_connect($nomehost,$user,$password) or die ("Impossibile stabilire una connessione col database" . mysqli_connect_error());
 	mysql_select_db($db) or die ("Impossibile trovare la tabella");
 	mysql_set_charset('utf8',$connessione);
+	echo '<link rel="stylesheet" type="text/css" href="style.css">';
 ?>

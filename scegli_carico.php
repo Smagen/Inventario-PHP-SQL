@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form action="scarico.php" name=from1 method="post">
-	<h1>Scegli la categoria e l'operazione da eseguire:</h1><br>
+<form action="carico.php" name=from1 method="post">
+	<h1>Scegli la categoria:</h1><br>
 <div>
 	<br>
 	<p>

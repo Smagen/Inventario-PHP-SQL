@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><body>
-<form action="scarico_go.php" method="post">
+<form action="carico_go.php" method="post">
 <?php
 	include 'funzioni.php';
 	mysql_select_db($db_users) or die ("Impossibile trovare la tabella utenti");
@@ -22,9 +22,9 @@ Seleziona il prodotto: <select name='prodotto'>
 <?php elenco_prodotti ($categoria); ?></select>
 </p>
 <br>
-Seleziona la quantità da scaricare: <input type="text" type="number" name="quantita" min="0.0" required />
+Seleziona la quantità da caricare: <input type="text" type="number" name="quantita" min="0.0" required />
 <br>
-<input type="submit" value="Esegui Scarico">
+<input type="submit" value="Esegui Carico">
 
 </form>
 </body></html>

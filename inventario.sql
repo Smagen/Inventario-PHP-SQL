@@ -19,23 +19,23 @@ USE `inventario`;
 -- Dump della struttura di tabella inventario.amidi-addensanti-coloranti-lieviti
 CREATE TABLE IF NOT EXISTS `amidi-addensanti-coloranti-lieviti` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL DEFAULT '0',
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Amidi - Addensanti - Coloranti - Lieviti'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dump dei dati della tabella inventario.amidi-addensanti-coloranti-lieviti: ~13 rows (circa)
 /*!40000 ALTER TABLE `amidi-addensanti-coloranti-lieviti` DISABLE KEYS */;
 INSERT INTO `amidi-addensanti-coloranti-lieviti` (`Prodotto`, `Quantita`, `Categoria`) VALUES
-	('Amido di mais (Kg)', 29.48, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nAmido di riso (g)', 1340, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('Amido di mais (Kg)', 28, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nAmido di riso (g)', 1, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nCol. Azzurro (vasetti)', 2, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nCol. Giallo (vasetti)', 5, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nCol. Rosso ciliegia (tubetti)', 7, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nCol. Rosso fragola (g)', 1, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nCol. Giallo (vasetti)', 15.5, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nCol. Rosso ciliegia (tubetti)', 27.2, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nCol. Rosso fragola (g)', 2.1, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nCol. Verde menta (g)', 18, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nFecola di patate (g)', 13, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nGelatina in fogli (g)', 260, 'Amidi - Addensanti - Coloranti - Lieviti'),
-	('\r\nGelatine titanio (scotole)', 100, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nGelatina in fogli (g)', 0, 'Amidi - Addensanti - Coloranti - Lieviti'),
+	('\r\nGelatine titanio (scotole)', 0, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nLievito di birra (bustine)', 1, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nLievito vanigliato (bustine)', 2, 'Amidi - Addensanti - Coloranti - Lieviti'),
 	('\r\nPectina (g)', 3, 'Amidi - Addensanti - Coloranti - Lieviti');
@@ -44,14 +44,14 @@ INSERT INTO `amidi-addensanti-coloranti-lieviti` (`Prodotto`, `Quantita`, `Categ
 -- Dump della struttura di tabella inventario.cioccolato-paste
 CREATE TABLE IF NOT EXISTS `cioccolato-paste` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL DEFAULT '0',
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Cioccolato - Paste'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Dump dei dati della tabella inventario.cioccolato-paste: ~9 rows (circa)
 /*!40000 ALTER TABLE `cioccolato-paste` DISABLE KEYS */;
 INSERT INTO `cioccolato-paste` (`Prodotto`, `Quantita`, `Categoria`) VALUES
-	('Cioccolato surrogato (Kg)', 1.2, 'Cioccolato - Paste'),
+	('Cioccolato surrogato (Kg)', 0, 'Cioccolato - Paste'),
 	('\r\nGocce di cioccolato al latte (Kg)', 4.6, 'Cioccolato - Paste'),
 	('\r\nGocce di cioccolato bianco (Kg)', 0.72, 'Cioccolato - Paste'),
 	('\r\nGocce di cioccolato fondente  (Kg)', 3.36, 'Cioccolato - Paste'),
@@ -65,7 +65,7 @@ INSERT INTO `cioccolato-paste` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 -- Dump della struttura di tabella inventario.farinacei-barattolame
 CREATE TABLE IF NOT EXISTS `farinacei-barattolame` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Farinacei - Barattolame'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -135,7 +135,7 @@ INSERT INTO `farinacei-barattolame` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 -- Dump della struttura di tabella inventario.farine
 CREATE TABLE IF NOT EXISTS `farine` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Farine'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -155,7 +155,7 @@ INSERT INTO `farine` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 -- Dump della struttura di tabella inventario.olii-bottiglie
 CREATE TABLE IF NOT EXISTS `olii-bottiglie` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Olii e Bottiglie'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -173,11 +173,11 @@ INSERT INTO `olii-bottiglie` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 -- Dump della struttura di tabella inventario.orientale
 CREATE TABLE IF NOT EXISTS `orientale` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Orientale'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dump dei dati della tabella inventario.orientale: ~18 rows (circa)
+-- Dump dei dati della tabella inventario.orientale: ~17 rows (circa)
 /*!40000 ALTER TABLE `orientale` DISABLE KEYS */;
 INSERT INTO `orientale` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 	('Alga Nori Zampardi (fogli)', 40, 'Orientale'),
@@ -202,7 +202,7 @@ INSERT INTO `orientale` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 -- Dump della struttura di tabella inventario.pasta-di-zucchero-decorazioni
 CREATE TABLE IF NOT EXISTS `pasta-di-zucchero-decorazioni` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Pasta di Zucchero - Decorazioni'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -217,7 +217,7 @@ INSERT INTO `pasta-di-zucchero-decorazioni` (`Prodotto`, `Quantita`, `Categoria`
 -- Dump della struttura di tabella inventario.polveri-confetture-zuccheri
 CREATE TABLE IF NOT EXISTS `polveri-confetture-zuccheri` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Polveri - Confetture - Zuccheri'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -248,11 +248,11 @@ INSERT INTO `polveri-confetture-zuccheri` (`Prodotto`, `Quantita`, `Categoria`) 
 -- Dump della struttura di tabella inventario.spezie
 CREATE TABLE IF NOT EXISTS `spezie` (
   `Prodotto` varchar(50) NOT NULL,
-  `Quantita` float NOT NULL,
+  `Quantita` float unsigned NOT NULL DEFAULT '0',
   `Categoria` varchar(50) NOT NULL DEFAULT 'Spezie'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dump dei dati della tabella inventario.spezie: ~38 rows (circa)
+-- Dump dei dati della tabella inventario.spezie: ~0 rows (circa)
 /*!40000 ALTER TABLE `spezie` DISABLE KEYS */;
 INSERT INTO `spezie` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 	('Aglio Polvere', 2, 'Spezie'),
@@ -294,6 +294,23 @@ INSERT INTO `spezie` (`Prodotto`, `Quantita`, `Categoria`) VALUES
 	('\r\nZenzero polvere', 2, 'Spezie'),
 	('\r\nZucchero di canna (g)', 60, 'Spezie');
 /*!40000 ALTER TABLE `spezie` ENABLE KEYS */;
+
+
+-- Dump della struttura del database utenti
+CREATE DATABASE IF NOT EXISTS `utenti` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
+USE `utenti`;
+
+-- Dump della struttura di tabella utenti.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(50) COLLATE utf8_bin NOT NULL,
+  `password` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- Dump dei dati della tabella utenti.users: ~0 rows (circa)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`username`, `password`) VALUES
+	('admin', '1234');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
